@@ -1,0 +1,48 @@
+<div class="nav-nokol">
+
+  <button class="btn-nokol btn-success-nokol" style="float:left;background: #ff9e0d" (click)="showWorks()">Works</button>
+
+  <div style="float:right; background: #f1f1f1;">
+    <input type="text" class="input-nokol form-control-nokol" [(ngModel)]="frostService.author">
+  </div>
+  <p class="authorbadge-nokol">Author</p>
+</div>
+
+
+<!--TODO seperation-->
+<div class="absolutePanel-nokol" *ngIf="isShowWorks">
+  <div class="middlecontent-nokol " style="max-width: 1000px;  margin-top: 35px!important; margin: auto;">
+
+    <div class="card-nokol">
+
+      <div class="card-body-nokol">
+        <div class="form-header-nokol">
+          <h3>
+            All works
+          </h3>
+        </div>
+        <div style="max-height:80vh; overflow:auto">
+
+          <table style="width:100%">
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Tags</th>
+              <th>Date</th>
+            </tr>
+            <tr *ngFor="let work of frostService.works">
+              <td>
+                <button class="btn-nokol btn-success-nokol" style="background: #ff9e0d" (click)="openWork(work)">{{work.name}}</button>
+              </td>
+              <td>{{work.author}}</td>
+              <td>{{work.tags}}</td>
+              <td>{{toDate(work.dateCreated)}}</td>
+            </tr>
+
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

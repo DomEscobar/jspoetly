@@ -1,0 +1,19 @@
+.nav-nokol {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 40px;
+  background: #0895ca;
+  left: 0px;
+}
+
+.authorbadge-nokol {
+  color: white;
+  position: fixed;
+  right: 0px;
+  padding: 5px;
+  background: white;
+  bottom: 17px;
+  background: #ff9e0d;
+  font-size: 11px;
+}
