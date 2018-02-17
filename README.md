@@ -1,4 +1,3 @@
-## jspoetly
 <div align="center">
   <img src="http://nokol.net/jspoetly/logo_jspoetly.png"><br><br>
 </div>
