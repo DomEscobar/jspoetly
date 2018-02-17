@@ -16,7 +16,7 @@ export class NavigationComponent
 
   constructor(
     private router: Router,
-    private frostService: FrostService)
+    public frostService: FrostService)
   {
     this.frostService.author = this.generateRandomName();
   }
