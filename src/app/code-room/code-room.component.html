@@ -14,11 +14,11 @@
       </div>
 
       <div [hidden]="tabpanelIndex!='js'" class="tabcontent-nokol fade">
-        <textarea appCodemirror [theme]="'material'" [(ngModel)]="work.code.css" (ngModelChange)="updatejs($event)"></textarea>
+        <textarea appCodemirror [theme]="'material'" [(ngModel)]="work.code.js" (ngModelChange)="updatejs($event)"></textarea>
       </div>
 
       <div [hidden]="tabpanelIndex!='css'" class="tabcontent-nokol fade">
-        <textarea appCodemirror [codeMode]=" 'css' " [theme]="'material'" [(ngModel)]="work.code.js" (ngModelChange)="updateCss($event)" ></textarea>
+        <textarea appCodemirror [codeMode]=" 'css' " [theme]="'material'" [(ngModel)]="work.code.css" (ngModelChange)="updateCss($event)" ></textarea>
       </div>
     </div>
 
@@ -29,7 +29,7 @@
       <button class="tablinks-nokol">Live preview</button>
       <button class="btn-nokol btn-success-nokol" style="float:right;background: #08e66b;" (click)="createWork()">Save work</button>
       <div style="">
-        <input type="text" class="input-nokol form-control-nokol" placeholder="Tags" [(ngModel)]="work.tags">
+        <input type="text" class="input-nokol form-control-nokol" placeholder="Keywords" [(ngModel)]="work.tags">
       </div>
     </div>
     <div class="card-nokol">

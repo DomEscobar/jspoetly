@@ -1,3 +1,12 @@
-<p>
-  infobox works!
-</p>
+<div class="absolutePanel-nokol"  *ngIf="message">
+  <div class="middlecontent-nokol " style="max-width:400px;  margin-top: 55px!important; margin: auto;">
+    <div class="card-nokol">
+      <div class="card-body-nokol">
+        {{message}}
+      </div>
+      <div class="card-footer-nokol">
+        <button clas="btn-nokol btn-success-nokol" (click)="hide()">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>

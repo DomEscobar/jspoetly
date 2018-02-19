@@ -1,15 +1,16 @@
-import { Component, AfterViewInit, NgZone } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Code } from '../models/code';
 import { FrostService } from '../service/frost.service';
 import { WorkAttributes } from '../models/workAttributes';
+import { Message } from '../util';
 
 @Component({
   selector: 'app-code-room',
   templateUrl: './code-room.component.html',
   styleUrls: ['./code-room.component.css']
 })
-export class CodeRoomComponent implements AfterViewInit
+export class CodeRoomComponent implements AfterViewInit, OnInit
 {
   work: WorkAttributes = new WorkAttributes();
 
@@ -21,7 +22,6 @@ export class CodeRoomComponent implements AfterViewInit
   public tabpanelIndex = 'html';
 
   constructor(
-    private ngZone: NgZone,
     private activatedRoute: ActivatedRoute,
     private frostService: FrostService)
   {
@@ -65,11 +65,11 @@ export class CodeRoomComponent implements AfterViewInit
       await this.frostService.fetchWorks();
     }
 
-    const workData = this.frostService.works.find(o => o.code.guid == id);
+    const workData = this.frostService.works.find(o => o.code.guid === id);
 
     if (!workData)
     {
-      alert("No work found");
+      Message.show('No work found');
       this.work.code = new Code();
       return;
     }
@@ -99,13 +99,13 @@ export class CodeRoomComponent implements AfterViewInit
     work.dateCreated = new Date().toISOString();
     work.datePublished = new Date().toISOString();
     work.content = JSON.stringify(this.work.code);
-    work.name = window.prompt('Title of your creation', 'My Title');;
+    work.name = window.prompt('Title of your creation', 'My Title');
     work.author = this.frostService.author;
     work.tags = this.work.tags;
 
     this.frostService.CreateWork(work).subscribe(data =>
     {
-      alert("Work saved successfully save your workid to ensure that this is your content : " + data.workId);
+      Message.show('Work saved successfully save your workid to ensure that this is your content : ' + data.workId);
     });
   }
 

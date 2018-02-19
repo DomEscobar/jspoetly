@@ -1,15 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Message } from '../util';
 
 @Component({
   selector: 'app-infobox',
   templateUrl: './infobox.component.html',
   styleUrls: ['./infobox.component.css']
 })
-export class InfoboxComponent implements OnInit {
+export class InfoboxComponent
+{
+  message = '';
 
-  constructor() { }
+  constructor()
+  {
+    Message.onChange.subscribe(data =>
+    {
+      this.message = data;
+    });
+  }
 
-  ngOnInit() {
+  hide()
+  {
+    Message.hide();
   }
 
 }
