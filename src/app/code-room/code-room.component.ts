@@ -3,7 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Code } from '../models/code';
 import { FrostService } from '../service/frost.service';
 import { WorkAttributes } from '../models/workAttributes';
-import { Message } from '../util';
+import { Message, Loading } from '../util';
 
 @Component({
   selector: 'app-code-room',
@@ -95,6 +95,7 @@ export class CodeRoomComponent implements AfterViewInit, OnInit
   public createWork()
   {
     const work: WorkAttributes = new WorkAttributes();
+    Loading.show();
 
     work.dateCreated = new Date().toISOString();
     work.datePublished = new Date().toISOString();
@@ -105,6 +106,8 @@ export class CodeRoomComponent implements AfterViewInit, OnInit
 
     this.frostService.CreateWork(work).subscribe(data =>
     {
+      Loading.hide();
+
       Message.show('Work saved successfully save your workid to ensure that this is your content : ' + data.workId);
     });
   }

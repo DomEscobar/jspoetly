@@ -5,6 +5,7 @@ import { EventEmitter } from '@angular/core';
 export class Loading
 {
   private static isLoading = false;
+  public static onChange: EventEmitter<boolean> = new EventEmitter();
 
   public static getLoading(): boolean
   {
@@ -14,11 +15,13 @@ export class Loading
   public static show()
   {
     Loading.isLoading = true;
+    Loading.onChange.emit(true);
   }
 
   public static hide()
   {
     Loading.isLoading = false;
+    Loading.onChange.emit(false);
   }
 }
 

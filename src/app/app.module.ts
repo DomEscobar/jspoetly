@@ -11,6 +11,7 @@ import { SanitizeHtmlPipe } from './directives/sanitize-html.pipe';
 import { FrostService } from './service/frost.service';
 import { NavigationComponent } from './navigation/navigation.component';
 import { InfoboxComponent } from './infobox/infobox.component';
+import { LoaderComponent } from './loader/loader.component';
 
 const routes = [
   { path: '', component: CodeRoomComponent },
@@ -24,7 +25,8 @@ const routes = [
     CodeRoomComponent,
     SanitizeHtmlPipe,
     NavigationComponent,
-    InfoboxComponent
+    InfoboxComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

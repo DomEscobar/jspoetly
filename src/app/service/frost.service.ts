@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { WorkAttributes } from '../models/workAttributes';
 import { Profile } from '../models/profile';
 import { ApiToken } from '../models/apiToken';
+import { Loading } from '../util';
 
 @Injectable()
 export class FrostService extends BaseService
@@ -27,6 +28,7 @@ export class FrostService extends BaseService
    */
   public fetchWorks(): Promise<any>
   {
+    Loading.show();
     return new Promise((resolve, reject) =>
     {
       this.GetWorks(this.getToken()).subscribe((data) =>
@@ -35,6 +37,7 @@ export class FrostService extends BaseService
         {
           work.code = JSON.parse(work.content);
         });
+        Loading.hide();
 
         this.works = data;
         resolve();
