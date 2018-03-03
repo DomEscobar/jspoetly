@@ -10,7 +10,7 @@
 
     <div class="tab-content-nokol card-nokol" *ngIf="work.code">
       <div [hidden]="tabpanelIndex!='html'" class="tabcontent-nokol fade in show active">
-        <textarea appCodemirror [codeMode]=" 'xml' " [theme]="'material'" [htmlMode]="true" class="area-html" [(ngModel)]="work.code.html"></textarea>
+        <textarea appCodemirror [codeMode]="'xml'" [theme]="'material'" [htmlMode]="true" class="area-html" [(ngModel)]="work.code.html"></textarea>
       </div>
 
       <div [hidden]="tabpanelIndex!='js'" class="tabcontent-nokol fade">
@@ -18,12 +18,12 @@
       </div>
 
       <div [hidden]="tabpanelIndex!='css'" class="tabcontent-nokol fade">
-        <textarea appCodemirror [codeMode]=" 'css' " [theme]="'material'" [(ngModel)]="work.code.css" (ngModelChange)="updateCss($event)" ></textarea>
+        <textarea appCodemirror [codeMode]="'css'" [theme]="'material'" [(ngModel)]="work.code.css" (ngModelChange)="updateCss($event)" ></textarea>
       </div>
     </div>
 
   </div>
-  <div class="col-nokol">
+  <div class="col-nokol" style="float: right;">
 
     <div class="tab-nokol">
       <button class="tablinks-nokol">Live preview</button>

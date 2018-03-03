@@ -11,7 +11,7 @@
 
 <!--TODO seperation-->
 <div class="absolutePanel-nokol" *ngIf="isShowWorks">
-  <div class="middlecontent-nokol " style="max-width: 1000px;  margin-top: 35px!important; margin: auto;">
+  <div class="middlecontent-nokol " style="max-width: 50vw; margin-top: 15px!important;">
 
     <div class="card-nokol">
 
@@ -23,14 +23,19 @@
         </div>
         <div style="max-height:80vh; overflow:auto">
 
-          <table style="width:100%">
-            <tr>
-              <th>Title</th>
-              <th>Author</th>
-              <th>Tags</th>
-              <th>Date</th>
-            </tr>
-            <tr *ngFor="let work of frostService.works">
+          <table class="table-nokol" style="width:100%">
+            <thead class="th-nokol ">
+              <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>
+                  Tags <br />
+                  <input style="float:left" class="" type="text" [(ngModel)]="searchValue" (ngModelChange)="search()" />
+                </th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tr *ngFor="let work of worksFiltered">
               <td>
                 <button class="btn-nokol btn-success-nokol" style="background: #ff9e0d" (click)="openWork(work)">{{work.name}}</button>
               </td>

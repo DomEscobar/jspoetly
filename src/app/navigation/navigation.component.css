@@ -17,3 +17,16 @@
   background: #ff9e0d;
   font-size: 11px;
 }
+
+
+.th-nokol {
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.table-nokol td, th {
+  padding: 5px 5px;
+  display: table-cell;
+  text-align: left;
+  vertical-align: middle;
+  border-radius: 2px;
+}

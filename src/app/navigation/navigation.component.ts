@@ -13,6 +13,8 @@ import { Code } from '../models/code';
 export class NavigationComponent
 {
   isShowWorks = false;
+  searchValue = '';
+  worksFiltered: WorkAttributes[];
 
   constructor(
     private router: Router,
@@ -37,7 +39,10 @@ export class NavigationComponent
 
     if (this.frostService.works == null)
     {
-      this.frostService.fetchWorks();
+      this.frostService.fetchWorks().then(data =>
+      {
+        this.worksFiltered = this.frostService.works;
+      });
     }
   }
 
@@ -45,5 +50,10 @@ export class NavigationComponent
   {
     const code: Code = JSON.parse(work.content);
     this.router.navigate(['', code.guid]);
+  }
+
+  search()
+  {
+    this.worksFiltered = this.frostService.works.filter(o => o.tags != null && o.tags.includes(this.searchValue));
   }
 }

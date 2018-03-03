@@ -35,6 +35,7 @@ export class FrostService extends BaseService
       {
         data.forEach(work =>
         {
+          debugger;
           work.code = JSON.parse(work.content);
         });
         Loading.hide();
