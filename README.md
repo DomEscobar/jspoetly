@@ -4,8 +4,10 @@
 
 -----------------
 
- [Alpha demo](http://nokol.net/jspoetly/)
+ [Demo](http://nokol.net/jspoetly/)
 
 Test your JavaScript, CSS, HTML and save your code online and decentralized on the poet network.
+
+This project is meant to be for showcase and test purpose
 
 Read about [Po.et](https://www.po.et/)
