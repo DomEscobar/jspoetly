@@ -1,8 +1,4 @@
-<div align="center">
-  <img src="http://nokol.net/jspoetly/logo_jspoetly.png"><br><br>
-</div>
-
------------------
+## For test purpose do what every you want
 
  [Demo](http://nokol.net/jspoetly/)
 
